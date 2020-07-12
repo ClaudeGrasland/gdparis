@@ -4,7 +4,6 @@ library(leaflet)
 library(sf)
 library(htmltools)
 
-setwd("/Users/claudegrasland1/git/gdparis/actifs")
 
 com<-readRDS("com.rda")
 ept<-readRDS("ept.rda")
