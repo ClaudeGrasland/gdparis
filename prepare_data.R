@@ -3,12 +3,12 @@ library(htmlwidgets)
 library(leaflet)
 library(sf)
 library(htmltools)
-
-setwd("/Users/claudegrasland1/git/sucy_interactif")
+getwd()
+setwd("/Users/claudegrasland1/Documents/mygit/gdparis")
 #sel<-c("T10 Paris-Est-Marne et Bois","T11 Grand Paris Sud Est Avenir", "T12 Grand-Orly Seine Bièvre")
 
 # com
-com<-st_read("map_com.shp", quiet=T)
+com<-st_read("_data/maps/map_com.shp", quiet=T)
 plot(com$geometry)
 #plot(com$geometry)
 #com_sel<-com[com$CODE_EPT %in% sel,]
@@ -19,13 +19,13 @@ ept <-com %>% group_by(CODE_EPT) %>% summarize()
 plot(ept$geometry)
 
 # iris
-qua<-st_read("map_iris.shp", quiet=T)
+qua<-st_read("_data/maps/map_iris.shp", quiet=T)
 plot(qua$geometry)
 
 
 
 # data
-don <- read.csv("~/git/Sucy/base-ic-activite-residents-2016-idf.csv",sep=";", comment.char="#", stringsAsFactors = F)
+don <- read.csv("_data/stats/base-ic-activite-residents-2016-idf.csv",sep=";", comment.char="#", stringsAsFactors = F)
 selco<-names(table(as.character(qua$CODE_COM)))
 don<-don[don$COM %in% selco,]
 
